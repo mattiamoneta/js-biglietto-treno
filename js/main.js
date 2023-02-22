@@ -26,8 +26,13 @@ if ((inputEta < 18) && (inputEta > 0) && (inputPercorrenza > 0)){
     msg = 'Buone notizie: hai diritto allo sconto senior!';
     prezzo -= (prezzo * 0.4); 
 
+} else if ((inputEta >= 18) && (inputEta < 65) && (inputPercorrenza > 0)) {
+
+    msg = 'Nessuno sconto applicabile';
+
 } else {
     msg = "ERRORE: L'età e la percorrenza non possono essere zero.";
+    prezzo = null;
 }
 
 
