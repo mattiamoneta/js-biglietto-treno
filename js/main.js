@@ -16,25 +16,22 @@ if (isNaN(inputPercorrenza) || isNaN(inputEta)){
 
 // Verifica se valore in input non è negativo
 // e se sia applicabile lo sconto
-if ((inputEta < 18) && (inputEta > 0) && (inputPercorrenza > 0)){
+if((inputPercorrenza > 0) && (inputEta > 0)){
 
-    msg = 'Buone notizie: hai diritto allo sconto under 18!';
-    prezzo -= (prezzo * 0.2); 
-
-} else if ((inputEta >= 65) && (inputPercorrenza > 0)) {
-
-    msg = 'Buone notizie: hai diritto allo sconto senior!';
-    prezzo -= (prezzo * 0.4); 
-
-} else if ((inputEta >= 18) && (inputEta < 65) && (inputPercorrenza > 0)) {
-
-    msg = 'Nessuno sconto applicabile';
+    if ((inputEta < 18) && (inputEta > 0)){
+        msg = 'Buone notizie: hai diritto allo sconto under 18!';
+        prezzo -= (prezzo * 0.2); 
+    } else if ((inputEta >= 65)) {
+        msg = 'Buone notizie: hai diritto allo sconto senior!';
+        prezzo -= (prezzo * 0.4); 
+    } else {
+        msg = 'Nessuno sconto applicabile';
+    }
 
 } else {
     msg = "ERRORE: L'età e la percorrenza non possono essere zero.";
     prezzo = null;
 }
-
 
 // Arrotonda il prezzo a due decimali
 if(prezzo > 0){
